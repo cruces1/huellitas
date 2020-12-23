@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"> 
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>LoginHuellitas</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" href="resources/img/icono.png" type="image/x-icon" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <link rel="stylesheet" href="resources/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="resources/bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="resources/bower_components/Ionicons/css/ionicons.min.css" />
+  <link rel="stylesheet" href="resources/dist/css/AdminLTE.min.css" />
+  <link rel="stylesheet" href="resources/plugins/iCheck/square/blue.css" />
+  <link rel="stylesheet" type="text/css" href="resources/css/estilos.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
+</h:head> 
+
+
+<body class="hold-transition skin-blue sidebar-mini"> 
+	<div class="login-box">
+ 		<div class="login-logo letra-login">
+   			<a href="login.xhtml"><b>Admin  </b> Huellitas</a>
+ 		</div>
+		<div class="login-box-body">
+  			
+            <h:form styleClass="form-signin" prependId="false">
+                <b:inputText value="#{loginBean.ad.usuario}" id="usuario" placeholder="Usuario" >
+                    <f:facet name="prepend">
+                        <b:icon name="user" />
+                    </f:facet>
+                </b:inputText>
+                
+                <b:inputText value="#{loginBean.ad.password}" id="password" placeholder="Password" type="password">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+                </b:inputText>
+                
+                <b:selectBooleanCheckbox value="true" caption="remember me"/>
+                <b:commandButton action="#{loginBean.iniciarSesion()}" look="primary btn-block" value="Iniciar sesión" icon="log-in" size="lg"/>
+            </h:form>
+        	
+			<div class="letra-login" style="font-size:1em;" align="center">
+				<a href="#">¿Has olvidado su contraseña?</a>
+			</div>
+			
+			<div>
+			  <h:outputText value="#{loginBean.alerta}" style="color: red; display: block; width:100%; text-align:center;"/>
+			</div>
+  		</div>
+	</div>
+
+	<script src="resources/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="resources/plugins/iCheck/icheck.min.js"></script>
+	<script>
+		$(function () {
+  			$('input').iCheck({
+    			checkboxClass: 'icheckbox_square-blue',
+    			radioClass: 'iradio_square-blue',
+    			increaseArea: '20%' 
+  			});
+		});
+	</script>
+</body> 
+</html>
